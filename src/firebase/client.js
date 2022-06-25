@@ -10,11 +10,19 @@ import "firebase/firestore";
 const firebaseKey = process.env.REACT_APP_FIREBASE_API_KEY;
 const firebaseProjectId = process.env.REACT_APP_FIREBASE_PROJECT_ID;
 const firebaseAuthDomain = process.env.REACT_APP_FIREBASE_AUTH_DOMAIN;
+<<<<<<< HEAD
+=======
+const firebaseStorageBucket = process.env.REACT_APP_FIREBASE_STORAGE_BUCKET;
+>>>>>>> e47f273875f14a0ee4031c323ee2b7a2be9bb760
 
 const options = {
     apiKey: firebaseKey,
     authDomain: firebaseAuthDomain,
     projectId: firebaseProjectId,
+<<<<<<< HEAD
+=======
+    storageBucket: firebaseStorageBucket,
+>>>>>>> e47f273875f14a0ee4031c323ee2b7a2be9bb760
 };
 
 const client = firebase.initializeApp(options);
