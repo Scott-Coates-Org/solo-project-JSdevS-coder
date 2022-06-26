@@ -18,5 +18,6 @@
         "titleBar.inactiveBackground": "#019cc699",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#019cc6"
+    "peacock.color": "#019cc6",
+    "jest.jestCommandLine": "run"
 }
