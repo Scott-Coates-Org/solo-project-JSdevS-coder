@@ -55,23 +55,7 @@ a:hover {
 	cursor: pointer;
 	transform: scale(0.9);
 }
-/* 
-.p-text {
-	font-size: 2em;
-	width: 100%;
-	padding: 0.1em 0;
-	font-family: 'Bell MT';
-}
 
-.text-1 {
-	padding: 0 2em;
-	font-size: 3em;
-}
-
-.text-2 {
-	margin: 0 35%;
-	font-size: 3em;
-} */
 
 .p-btn {
 	font-family: 'Bradley Hand ITC';
