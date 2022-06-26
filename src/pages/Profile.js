@@ -1,3 +1,5 @@
+import { StyledContainer } from 'styles/Container.styled'
+
 export default function Profile() {
-	return <div>Profile</div>
+	return <StyledContainer>Your profile</StyledContainer>
 }
