@@ -17,7 +17,7 @@ export default function Layout(props) {
 				<link rel="icon" href="/public/favicon.ico" />
 				<meta
 					name="description"
-					content="Learn how to build a personal website using Next.js"
+					content="Connect with travelers community"
 				/>
 				<title>Travel App</title>
 				<link rel="preconnect" href="https://fonts.gstatic.com" />
