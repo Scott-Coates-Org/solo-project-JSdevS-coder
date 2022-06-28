@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, createContext, useState } from 'react'
-import { firebase } from 'firebase/client'
+import { firebase } from '../../firebase/client'
 
 // https://stackoverflow.com/questions/55366320/how-do-i-use-the-firebase-onauthstatechange-with-the-new-react-hooks
 // https://javascript.plainenglish.io/introduction-to-react-context-api-with-firebase-authentication-92a6a3cf116d

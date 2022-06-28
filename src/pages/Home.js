@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createPost, fetchAllPosts } from 'redux/post'
 
 //components
-import Layout from './layout'
-import Hero from './Hero'
+import Layout from '../components/layout'
+import Hero from '../components/page-component/Hero'
+import PostList from '../components/page-component/PostList'
+
+//style
 import { Container } from 'reactstrap'
-import PostList from './PostList'
 
 export default function Home(props) {
+	console.log(props)
 	const dispatch = useDispatch()
 
 	const { data, isLoaded, hasErrors } = useSelector(state => state.post)

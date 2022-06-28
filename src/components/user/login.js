@@ -13,7 +13,7 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { StyledFirebaseAuth } from 'react-firebaseui'
 
 //components
-import Home from 'components/home'
+import Home from '../../pages/Home'
 
 const componentLoginFroms = {
 	login: LoginForm,
