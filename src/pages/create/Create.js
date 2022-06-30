@@ -1,4 +1,4 @@
-import { StyledContainer } from '../styles/Container.styled'
+import { StyledContainer } from 'styles/Container.styled'
 
 export default function Create() {
 	return (

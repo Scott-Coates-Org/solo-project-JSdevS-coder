@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createPost, fetchAllPosts } from 'redux/post'
 
 //components
-import Layout from '../components/layout'
-import Hero from '../components/page-component/Hero'
-import PostList from '../components/page-component/PostList'
+import Layout from '../../components/layout'
+import Hero from '../../components/page-component/Hero'
+import PostList from '../../components/page-component/posts/PostList'
 
 //style
 import { Container } from 'reactstrap'
+import { StyledContainer } from 'styles/Container.styled'
 
 export default function Home(props) {
 	console.log(props)
@@ -27,24 +28,23 @@ export default function Home(props) {
 	}, [dispatch])
 	console.log(data)
 	return (
-		<Container fluid>
-			<Hero />
-			<PostList />
-		</Container>
-		// <Layout {...props}>
-		// 	{/* <nav className="d-flex flex-column align-items-center">
-		// 		<section>
-		// 			{!isLoaded && 'Posts loading…'}
-		// 			{hasErrors && 'Error Loading'}
-		// 			{isLoaded && (
-		// 				<div>
-		// 					<p>Posts are Loaded!</p>
-		// 					<pre>{JSON.stringify(data, null, 2)}</pre>
-		// 				</div>
-		// 			)}
-		// 		</section>
-		// 	</nav> */}
-
-		// </Layout>
+		<StyledContainer>
+			<Layout {...props}>
+				<Hero />
+				<PostList />
+				{/* <nav className="d-flex flex-column align-items-center">
+				<section>
+					{!isLoaded && 'Posts loading…'}
+					{hasErrors && 'Error Loading'}
+					{isLoaded && (
+						<div>
+							<p>Posts are Loaded!</p>
+							<pre>{JSON.stringify(data, null, 2)}</pre>
+						</div>
+					)}
+				</section>
+			</nav> */}
+			</Layout>
+		</StyledContainer>
 	)
 }
