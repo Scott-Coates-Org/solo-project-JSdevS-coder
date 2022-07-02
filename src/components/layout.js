@@ -5,6 +5,7 @@ import { useAuth } from './user/auth'
 
 //components
 import NavBar from '../components/page-component/navbar/NavBar'
+import Footer from './page-component/footer/Footer'
 
 export default function Layout(props) {
 	const { user } = useAuth()
@@ -31,6 +32,7 @@ export default function Layout(props) {
 				<LayoutNav user={user} {...props} />
 			</header>
 			{props.children}
+			<Footer />
 		</>
 	)
 }
