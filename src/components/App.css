@@ -9,17 +9,19 @@ body {
 
 a {
 	text-decoration: none;
-	color: #333;
+	color: #126b12;
 	padding: 1em;
 }
 
 a.active {
-	color: #008db3;
-	background-color: #ffc942;
+	color: #ffa403;
+	background-color: #126b12;
 }
 
 a:hover {
 	text-decoration: none;
+	background-color: #126b12;
+	color: #00eafc;
 }
 
 .navBar {
@@ -29,13 +31,19 @@ a:hover {
 	color: #333;
 	font-weight: bold;
 	font-size: 1.3em;
-	background-color: #d9eef9;
+	background-color: #fff;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
+	border-bottom: 1px solid #d9eef9;
 }
-
+.navBar a a.navbar-brand:hover {
+	background: none;
+}
+.navBar a a.navbar-brand:active {
+	background: none;
+}
 .hero-img {
 	display: inline-block;
 	margin: 1em 10%;
@@ -45,7 +53,7 @@ a:hover {
 	font-family: 'Bradley Hand ITC';
 	font-size: 3em;
 	font-weight: 900;
-	color: #83bf4f;
+	color: #126b12;
 	margin: 1em;
 }
 
@@ -63,7 +71,7 @@ a:hover {
 
 .p-btn {
 	font-family: 'Bradley Hand ITC';
-	background-color: #83bf4f;
+	background-color: #126b12;
 	font-weight: bolder !important;
 	font-size: 1.4em;
 	margin-right: 10%;
@@ -79,7 +87,7 @@ a:hover {
 	font-family: 'Bell MT';
 	font-size: 1.5em;
 	padding: 0.1em 0.5em;
-	background-color: #83bf4f;
+	background-color: #126b12;
 }
 
 .dropdown button {
@@ -87,7 +95,7 @@ a:hover {
 	font-size: 1.5rem;
 	font-family: 'Bradley Hand ITC';
 	padding: 0 0.1em;
-	background-color: #83bf4f;
+	background-color: #126b12;
 }
 
 .dropdown-menu {
