@@ -3,56 +3,47 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import firebaseClient from '../firebase/client'
 
 const initialState = {
-	data: [
-		{
-			author: '',
-			body: '',
-			city: '',
-			country: '',
-			currentWeather: {},
-			images: [],
-			location: [],
-			monthlyWeather: '',
-			time: {},
-			title: '',
-		},
-	],
+	posts: [],
 	isLoaded: false,
 	hasErrors: false,
 }
 
-const posts = createSlice({
+const postsSlice = createSlice({
 	name: 'posts',
 	initialState,
 	reducers: {
-		getData: state => {},
+		getPosts: state => {},
 
-		getDataSuccess: (state, action) => {
+		getPostsSuccess: (state, action) => {
 			state.isLoaded = true
-			state.data = action.payload
+			state.posts = action.payload
 		},
 
-		getDataFailure: (state, action) => {
+		getPostsFailure: (state, action) => {
 			state.isLoaded = true
 			state.hasErrors = true
 		},
 
-		createDataFailure: state => {
+		createPostsFailure: state => {
 			state.hasErrors = true
+		},
+		createPost: (state, action) => {
+			state.hasErrors = false
+			state.isLoaded = true
 		},
 	},
 })
 
-export const reducer = posts.reducer
-
 export const { getData, getDataSuccess, getDataFailure, createDataFailure } =
-	posts.actions
+	postsSlice
+
+export const reducer = postsSlice.reducer
 
 export const fetchAllPosts = createAsyncThunk(
 	'posts/fetchAllPosts',
 	async (_, thunkAPI) => {
 		// Set the loading state to true
-		thunkAPI.dispatch(getData())
+		thunkAPI.dispatch(getPosts())
 
 		try {
 			const data = await _fetchAllPostsFromDb()
@@ -81,9 +72,9 @@ export const createPost = createAsyncThunk(
 async function _fetchAllPostsFromDb() {
 	const snapshot = await firebaseClient.firestore().collection('posts').get()
 
-	const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+	const posts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.posts() }))
 
-	return data
+	return posts
 }
 
 async function _createPost(
@@ -98,21 +89,18 @@ async function _createPost(
 	time,
 	title
 ) {
-	const doc = await firebaseClient
-		.firestore()
-		.collection('posts')
-		.add({
-			author,
-			body,
-			city,
-			country,
-			currentWeather,
-			images,
-			location,
-			monthlyWeather,
-			time,
-			title,
-		})
+	const doc = await firebaseClient.firestore().collection('posts').add({
+		author,
+		body,
+		city,
+		country,
+		currentWeather,
+		images,
+		location,
+		monthlyWeather,
+		time,
+		title,
+	})
 
 	return doc
 }

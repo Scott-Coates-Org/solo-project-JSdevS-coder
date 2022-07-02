@@ -1,6 +1,13 @@
-body {
+html {
+	min-width: 100%;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	margin: 0 !important;
+	padding: 0 !important;
 	width: 100%;
 	height: 100%;
 	font-family: 'Bell MT' sans-serif;
@@ -38,7 +45,7 @@ a:hover {
 	width: 100%;
 	border-bottom: 1px solid #d9eef9;
 }
-.navBar a a.navbar-brand:hover {
+.navBar a .navbar-brand:hover {
 	background: none;
 }
 .navBar a a.navbar-brand:active {

@@ -6,6 +6,7 @@ import { StyledFlexColumn } from 'styles/FlexColumn.styled'
 import { StyledFlexRow } from 'styles/FlexRow.styled'
 import { StyledGreenText } from 'styles/TextGreen.styled'
 import { StyledForm } from './SignInUp.styles'
+import { useAuth } from 'components/user/auth'
 
 export default function SignUp() {
 	const [email, setEmail] = useState('')
@@ -16,21 +17,33 @@ export default function SignUp() {
 	const [city, setCity] = useState('')
 	const [newUser, setNewUser] = useState({})
 
-	// const findLocation = () => {
-	// 	const location = fetch(
-	// 		'https://extreme-ip-lookup.com/json/?key=K1qum4DUa8ayh2q5pjvj'
-	// 	)
-	// 		.then(res => res.json())
-	// 		.then(response => {
-	// 			console.log(response)
-	// 			return [response.lon, response.lat]
-	// 		})
-	// 		.catch((data, status) => {
-	// 			console.log('Request failed')
-	// 		})
+	const findLocation = () => {
+		const location = fetch(
+			'https://extreme-ip-lookup.com/json/?key=K1qum4DUa8ayh2q5pjvj'
+		)
+			.then(res => res.json())
+			.then(response => {
+				console.log(response)
+				return [response.lon, response.lat]
+			})
+			.catch((data, status) => {
+				console.log('Request failed')
+			})
 
-	// 	return location
-	// }
+		return location
+	}
+
+	const handleGoogleLogin = e => {
+		e.preventDefault()
+		const googleProvider = new firebase.auth.GoogleAuthProvider()
+		return handleLogin(googleProvider)
+	}
+
+	const handleFacebookLogin = e => {
+		e.preventDefault()
+		const facebookProvider = new firebase.auth.FacebookAuthProvider()
+		return handleLogin(facebookProvider)
+	}
 
 	const handleSubmit = () => {
 		setNewUser({
@@ -112,6 +125,14 @@ export default function SignUp() {
 						</StyledFlexColumn>
 					</StyledFlexColumn>
 				</StyledForm>
+				<StyledButton margin="0.5em auto" onClick={handleGoogleLogin}>
+					<FontAwesomeIcon icon={faGoogle} className="mr-lg-1" />
+					<p className="m-0 ">Continue with Google</p>
+				</StyledButton>
+				<StyledButton margin="0.5em auto" onClick={handleFacebookLogin}>
+					<FontAwesomeIcon icon={faFacebook} className="mr-lg-1" />
+					<p className="m-0 "> Continue with Facebook</p>
+				</StyledButton>
 			</StyledFlexColumn>
 		</Layout>
 	)

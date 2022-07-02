@@ -4,8 +4,11 @@ import { StyledForm } from 'pages/signInUp/SignInUp.styles'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { Row } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 
 import { Col } from 'reactstrap'
+import { createPost } from 'redux/post'
+import store from 'redux/store'
 import { StyledButton } from 'styles/Button.styled'
 import { StyledContainer } from 'styles/Container.styled'
 import { StyledFlexColumn } from 'styles/FlexColumn.styled'
@@ -32,12 +35,32 @@ export default function Create() {
 		monthlyWeather: '',
 		time: new Date().toDateString(),
 	})
+
+	const { posts } = useSelector(state => state.post)
+
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(addPost(post))
+	}, [dispatch])
 	console.log(post)
 	const handleSubmit = () => {
 		if (user) {
-			setPost({})
+			setPost({
+				title,
+				body,
+				city,
+				country,
+				images,
+				location,
+				author,
+				monthlyWeather,
+				time,
+			})
+			dispatch(addPost(post))
 		}
 	}
+
 	return (
 		<Layout>
 			<StyledContainer>

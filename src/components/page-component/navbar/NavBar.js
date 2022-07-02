@@ -14,13 +14,13 @@ import { Link } from 'react-router-dom'
 
 export default function NavBar({ isOpen, toggle }) {
 	const { user } = useContext(AuthContext)
-	console.log(user)
+
 	return (
 		<Navbar className="navBar" expand="lg">
 			<Link to="/" style={{ padding: '0', background: 'white' }}>
-				<NavbarBrand>
+				<span className="navbar-brand">
 					<img src={Logo} alt="logo" height="80px" />
-				</NavbarBrand>
+				</span>
 			</Link>
 
 			{user && (
