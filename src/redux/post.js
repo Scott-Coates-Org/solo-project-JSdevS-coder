@@ -3,47 +3,56 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import firebaseClient from '../firebase/client'
 
 const initialState = {
-	posts: [],
+	data: [
+		{
+			author: '',
+			body: '',
+			city: '',
+			country: '',
+			currentWeather: {},
+			images: [],
+			location: [],
+			monthlyWeather: '',
+			time: {},
+			title: '',
+		},
+	],
 	isLoaded: false,
 	hasErrors: false,
 }
 
-const postsSlice = createSlice({
+const posts = createSlice({
 	name: 'posts',
 	initialState,
 	reducers: {
-		getPosts: state => {},
+		getData: state => {},
 
-		getPostsSuccess: (state, action) => {
+		getDataSuccess: (state, action) => {
 			state.isLoaded = true
-			state.posts = action.payload
+			state.data = action.payload
 		},
 
-		getPostsFailure: (state, action) => {
+		getDataFailure: (state, action) => {
 			state.isLoaded = true
 			state.hasErrors = true
 		},
 
-		createPostsFailure: state => {
+		createDataFailure: state => {
 			state.hasErrors = true
-		},
-		createPost: (state, action) => {
-			state.hasErrors = false
-			state.isLoaded = true
 		},
 	},
 })
 
-export const { getData, getDataSuccess, getDataFailure, createDataFailure } =
-	postsSlice
+export const reducer = posts.reducer
 
-export const reducer = postsSlice.reducer
+export const { getData, getDataSuccess, getDataFailure, createDataFailure } =
+	posts.actions
 
 export const fetchAllPosts = createAsyncThunk(
 	'posts/fetchAllPosts',
 	async (_, thunkAPI) => {
 		// Set the loading state to true
-		thunkAPI.dispatch(getPosts())
+		thunkAPI.dispatch(getData())
 
 		try {
 			const data = await _fetchAllPostsFromDb()
@@ -72,9 +81,9 @@ export const createPost = createAsyncThunk(
 async function _fetchAllPostsFromDb() {
 	const snapshot = await firebaseClient.firestore().collection('posts').get()
 
-	const posts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.posts() }))
+	const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
 
-	return posts
+	return data
 }
 
 async function _createPost(
@@ -89,18 +98,21 @@ async function _createPost(
 	time,
 	title
 ) {
-	const doc = await firebaseClient.firestore().collection('posts').add({
-		author,
-		body,
-		city,
-		country,
-		currentWeather,
-		images,
-		location,
-		monthlyWeather,
-		time,
-		title,
-	})
+	const doc = await firebaseClient
+		.firestore()
+		.collection('posts')
+		.add({
+			author,
+			body,
+			city,
+			country,
+			currentWeather,
+			images,
+			location,
+			monthlyWeather,
+			time,
+			title,
+		})
 
 	return doc
 }

@@ -37,7 +37,7 @@ export const history = createBrowserHistory()
 
 function withReduxProvider(Component) {
 	return function withReduxProvider(props) {
-		console.log(store)
+		console.log(props)
 		return (
 			<Provider store={store}>
 				<Component {...props} />
