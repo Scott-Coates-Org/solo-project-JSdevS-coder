@@ -7,7 +7,7 @@ import PostSummary from './PostSummary'
 export default function PostList() {
 	return (
 		<StyledContainer>
-			<StyledFlexColumn width="90%" margin="0 auto">
+			<StyledFlexColumn width="80%">
 				<PostSummary />
 				<PostSummary />
 				<PostSummary />

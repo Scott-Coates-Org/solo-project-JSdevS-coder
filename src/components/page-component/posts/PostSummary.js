@@ -9,7 +9,7 @@ import Colosseum from '../../../assets/coloseum.png'
 
 export default function PostSummary() {
 	return (
-		<StyledFlexRow style={{ borderBottom: '1px solid #126b12' }}>
+		<StyledFlexRow width="900px">
 			<StyledFlexColumn margin="0 2em">
 				<img src={Colosseum} alt="" width="400px" />
 				<i>By Username</i>

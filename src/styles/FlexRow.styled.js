@@ -9,5 +9,4 @@ export const StyledFlexRow = styled.div`
 	height: fit-content;
 	margin: ${({ margin }) => (margin ? margin : '0')};
 	padding: ${({ padding }) => (padding ? padding : '0.5em')};
-	width: ${({ width }) => (width ? width : '100%')};
 `
