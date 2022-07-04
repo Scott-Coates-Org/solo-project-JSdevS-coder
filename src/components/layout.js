@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useState } from 'react'
@@ -53,6 +54,8 @@ function LayoutNav(props) {
 
 	return nav
 =======
+=======
+>>>>>>> parent of 4d2042e (adding navbar and hero section)
 import Avatar from 'react-avatar';
 import { useState } from 'react';
 import {
@@ -133,5 +136,4 @@ function LayoutNav(props) {
   );
 
   return nav;
->>>>>>> e47f273875f14a0ee4031c323ee2b7a2be9bb760
 }

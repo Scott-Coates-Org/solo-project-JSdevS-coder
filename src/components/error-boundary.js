@@ -64,30 +64,14 @@ const apiKeyFix = (
     <ol>
       <li>Go to Firebase, ensure you've setup a project. That link is <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a>.
         <ol>
-<<<<<<< HEAD
           <li>Start with the <pre style={{ "display": "inline" }}>Authentication</pre> tab. Make sure <pre style={{ "display": "inline" }}>Email/Password is enabled</pre>.</li>
           <li>Next, go to <pre style={{ "display": "inline" }}>Firestore Database</pre> tab. Make sure <pre style={{ "display": "inline" }}>Start in test mode</pre> is selected.</li>
-=======
-          <li>Start by creating a web app. Skip the hosting option for now.
-          <details style={{ whiteSpace: 'pre-wrap' }}>
-              <summary>Screenshot</summary>
-              <img className="img-fluid" src="https://www.evernote.com/l/ABfsTDNFYXxPTYekNg_Zdg2ez05TVdEYP1oB/image.png" alt="Screenshot of Firebase web app creation" />
-            </details>
-          </li>
-          <li>Next, go to <pre style={{ "display": "inline" }}>Authentication</pre> tab. Make sure <pre style={{ "display": "inline" }}>Email/Password is enabled</pre>.</li>
-          <li>Next, go to <pre style={{ "display": "inline" }}>Firestore Database</pre> tab. Make sure <pre style={{ "display": "inline" }}>Start in test mode</pre> is selected.</li>
-          <li>Next, go to <pre style={{ "display": "inline" }}>Storage</pre> tab. Make sure <pre style={{ "display": "inline" }}>Start in test mode</pre> is selected.</li>
->>>>>>> e47f273875f14a0ee4031c323ee2b7a2be9bb760
         </ol>
       </li>
       <li>Make sure <pre style={{ "display": "inline" }}>env.local</pre> exists.
         <ol>
           <li>Do this by making a copy of <pre style={{ "display": "inline" }}>env.local.example</pre> and naming it <pre style={{ "display": "inline" }}>env.local</pre>.</li>
-<<<<<<< HEAD
           <li>Go to <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a> and fill in <pre style={{ "display": "inline" }}>env.local</pre> with the config values from firebase (Project Overview → Project Settings).</li>
-=======
-          <li>Go to <a href="https://console.firebase.google.com/" target="_blank">https://console.firebase.google.com/</a> and fill in <pre style={{ "display": "inline" }}>env.local</pre> with the config values from firebase. Click Project Overview → Project Settings → Your Apps (bottom of page).</li>
->>>>>>> e47f273875f14a0ee4031c323ee2b7a2be9bb760
           <li><strong>Restart the app</strong>.</li>
         </ol>
       </li>
