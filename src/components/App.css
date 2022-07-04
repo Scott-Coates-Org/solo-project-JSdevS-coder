@@ -4,7 +4,6 @@ body {
 	width: 100%;
 	height: 100%;
 	font-family: 'Bell MT' sans-serif;
-	box-sizing: border-box;
 }
 
 a {
@@ -30,10 +29,6 @@ a:hover {
 	font-weight: bold;
 	font-size: 1.3em;
 	background-color: #d9eef9;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
 }
 
 .hero-img {
@@ -60,6 +55,7 @@ a:hover {
 	cursor: pointer;
 	transform: scale(0.9);
 }
+
 
 .p-btn {
 	font-family: 'Bradley Hand ITC';

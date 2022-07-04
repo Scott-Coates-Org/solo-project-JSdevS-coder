@@ -4,7 +4,7 @@ import HeroGrid from '../../assets/Hero-grid.png'
 
 export default function Hero() {
 	return (
-		<Container fluid style={{ marginTop: '4em' }}>
+		<Container fluid>
 			<header>
 				<p className="text-left call-msg">Join our travelers community!</p>
 				<img

@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const StyledFlexRow = styled.div`
 	display: flex;
-	flex-direction: ${({ direction }) => (direction ? direction : 'row')};
+	flex-direction: row;
 	justify-content: ${({ justify }) => (justify ? justify : 'left')};
 	align-content: center;
+	margin: 0;
 	box-sizing: border-box;
 	height: fit-content;
-	margin: ${({ margin }) => (margin ? margin : '0')};
-	padding: ${({ padding }) => (padding ? padding : '0.5em')};
+	padding: 0;
 `
