@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createPost, fetchAllPosts } from 'redux/post'
 
 //components
 import Layout from '../../components/layout'
@@ -8,28 +7,21 @@ import Hero from '../../components/page-component/Hero'
 import PostList from '../../components/page-component/posts/PostList'
 
 //style
-import { Container } from 'reactstrap'
+
 import { StyledContainer } from 'styles/Container.styled'
+import { getPosts } from 'redux/posts'
 
-export default function Home(props) {
-	console.log(props)
-	const dispatch = useDispatch()
+export default function Home() {
+	// const { posts, isLoaded, error } = useSelector(state => state.posts)
+	// const dispatch = useDispatch()
 
-	const { data, isLoaded, hasErrors } = useSelector(state => state.post)
-
-	useEffect(() => {
-		// dispatch async thunks are promises
-		// https://redux-toolkit.js.org/api/createAsyncThunk#unwrapping-result-actions
-		dispatch(createPost({ title: 'my title', type: 'my type' })).then(
-			action => {
-				dispatch(fetchAllPosts())
-			}
-		)
-	}, [dispatch])
-	console.log(data)
+	// useEffect(() => {
+	// 	dispatch(getPosts())
+	// }, [dispatch])
+	// console.log(posts)
 	return (
 		<StyledContainer>
-			<Layout {...props}>
+			<Layout>
 				<Hero />
 				<PostList />
 				{/* <nav className="d-flex flex-column align-items-center">

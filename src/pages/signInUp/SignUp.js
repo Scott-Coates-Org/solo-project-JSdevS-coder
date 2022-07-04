@@ -1,63 +1,66 @@
-import Layout from 'components/layout'
 import React from 'react'
 import { useState } from 'react'
+
+//firebase
+import {
+	createUserWithEmail,
+	createUserDocfromAuth,
+} from 'firebase/firebase.util'
+
+//styles
 import { StyledButton } from 'styles/Button.styled'
 import { StyledFlexColumn } from 'styles/FlexColumn.styled'
 import { StyledFlexRow } from 'styles/FlexRow.styled'
 import { StyledGreenText } from 'styles/TextGreen.styled'
 import { StyledForm } from './SignInUp.styles'
-import { useAuth } from 'components/user/auth'
+
+//components
+import Layout from 'components/layout'
 
 export default function SignUp() {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const [confirmedPassword, setConfirmedPassword] = useState('')
 	const [firstName, setFirstName] = useState('')
 	const [lastName, setLastName] = useState('')
 	const [username, setUsername] = useState('')
 	const [city, setCity] = useState('')
 	const [newUser, setNewUser] = useState({})
 
-	const findLocation = () => {
-		const location = fetch(
-			'https://extreme-ip-lookup.com/json/?key=K1qum4DUa8ayh2q5pjvj'
-		)
-			.then(res => res.json())
-			.then(response => {
-				console.log(response)
-				return [response.lon, response.lat]
-			})
-			.catch((data, status) => {
-				console.log('Request failed')
-			})
-
-		return location
+	const resetForm = () => {
+		setEmail('')
+		setFirstName('')
+		setLastName('')
+		setCity('')
+		setUsername('')
+		setPassword('')
+		setConfirmedPassword('')
+		setNewUser({})
 	}
-
-	const handleGoogleLogin = e => {
+	const handleSubmit = e => {
 		e.preventDefault()
-		const googleProvider = new firebase.auth.GoogleAuthProvider()
-		return handleLogin(googleProvider)
+		setNewUser({ firstName, lastName, username, email, city, password })
+
+		return async e => {
+			if (password !== confirmedPassword) {
+				alert('Passwords do not match')
+				return
+			}
+
+			try {
+				const { user } = await createUserWithEmail(email, password)
+
+				await createUserDocfromAuth(user, newUser)
+			} catch (err) {
+				if (err.code === 'auth/email-already-in-use') {
+					alert('Can not create user, email already in use')
+				}
+				console.log(err)
+			}
+			resetForm()
+		}
 	}
 
-	const handleFacebookLogin = e => {
-		e.preventDefault()
-		const facebookProvider = new firebase.auth.FacebookAuthProvider()
-		return handleLogin(facebookProvider)
-	}
-
-	const handleSubmit = () => {
-		setNewUser({
-			firstName,
-			lastName,
-			username,
-			email,
-			password,
-			city,
-			location: findLocation(),
-		})
-	}
-
-	console.log(newUser)
 	return (
 		<Layout>
 			<StyledFlexColumn margin="6em auto">
@@ -70,16 +73,19 @@ export default function SignUp() {
 									<p>First name:</p>
 									<input
 										type="text"
-										onChange={e => setFirstName(e.target.value)}></input>
+										onChange={e => setFirstName(e.target.value)}
+										required
+										value={firstName}></input>
 								</label>
 							</StyledFlexColumn>
 							<StyledFlexColumn>
-								{' '}
 								<label>
 									<p>Last name:</p>
 									<input
 										type="text"
-										onChange={e => setLastName(e.target.value)}></input>
+										onChange={e => setLastName(e.target.value)}
+										required
+										value={lastName}></input>
 								</label>
 							</StyledFlexColumn>
 						</StyledFlexRow>
@@ -89,7 +95,9 @@ export default function SignUp() {
 									<p>Username:</p>
 									<input
 										type="text"
-										onChange={e => setUsername(e.target.value)}></input>
+										onChange={e => setUsername(e.target.value)}
+										required
+										value={username}></input>
 								</label>
 							</StyledFlexColumn>
 							<StyledFlexColumn>
@@ -97,7 +105,9 @@ export default function SignUp() {
 									<p>City:</p>
 									<input
 										type="text"
-										onChange={e => setCity(e.target.value)}></input>
+										onChange={e => setCity(e.target.value)}
+										required
+										value={city}></input>
 								</label>
 							</StyledFlexColumn>
 						</StyledFlexRow>
@@ -107,7 +117,9 @@ export default function SignUp() {
 								<p>Email:</p>
 								<input
 									type="email"
-									onChange={e => setEmail(e.target.value)}></input>
+									onChange={e => setEmail(e.target.value)}
+									required
+									value={email}></input>
 							</label>
 						</StyledFlexColumn>
 
@@ -117,7 +129,20 @@ export default function SignUp() {
 
 								<input
 									type="password"
-									onChange={e => setPassword(e.target.value)}></input>
+									onChange={e => setPassword(e.target.value)}
+									required
+									value={password}></input>
+							</label>
+						</StyledFlexColumn>
+						<StyledFlexColumn>
+							<label>
+								<p>Confirm password:</p>
+
+								<input
+									type="password"
+									onChange={e => setConfirmedPassword(e.target.value)}
+									required
+									value={confirmedPassword}></input>
 							</label>
 						</StyledFlexColumn>
 						<StyledFlexColumn width="50%" margin="0.5em auto">
@@ -125,14 +150,6 @@ export default function SignUp() {
 						</StyledFlexColumn>
 					</StyledFlexColumn>
 				</StyledForm>
-				<StyledButton margin="0.5em auto" onClick={handleGoogleLogin}>
-					<FontAwesomeIcon icon={faGoogle} className="mr-lg-1" />
-					<p className="m-0 ">Continue with Google</p>
-				</StyledButton>
-				<StyledButton margin="0.5em auto" onClick={handleFacebookLogin}>
-					<FontAwesomeIcon icon={faFacebook} className="mr-lg-1" />
-					<p className="m-0 "> Continue with Facebook</p>
-				</StyledButton>
 			</StyledFlexColumn>
 		</Layout>
 	)

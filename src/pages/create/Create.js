@@ -4,11 +4,11 @@ import { StyledForm } from 'pages/signInUp/SignInUp.styles'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { Row } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { Col } from 'reactstrap'
 import { createPost } from 'redux/post'
-import store from 'redux/store'
+
 import { StyledButton } from 'styles/Button.styled'
 import { StyledContainer } from 'styles/Container.styled'
 import { StyledFlexColumn } from 'styles/FlexColumn.styled'
@@ -18,6 +18,7 @@ import { StyledGreenText } from 'styles/TextGreen.styled'
 export default function Create() {
 	const { user } = useContext(AuthContext)
 	console.log(user)
+
 	const [title, setTitle] = useState('')
 	const [body, setBody] = useState('')
 	const [city, setCity] = useState('')
@@ -36,7 +37,7 @@ export default function Create() {
 		time: new Date().toDateString(),
 	})
 
-	const { posts } = useSelector(state => state.post)
+	const { posts, isLoaded, error } = useSelector(state => state.posts)
 
 	const dispatch = useDispatch()
 

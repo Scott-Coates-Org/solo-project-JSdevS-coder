@@ -12,13 +12,13 @@ import { StyledGreenText } from 'styles/TextGreen.styled'
 import PostSummary from './PostSummary'
 
 export default function PostList() {
-	const { posts } = useSelector(state => state.post)
+	// const { posts } = useSelector(state => state.post)
 
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 
-	useEffect(() => {
-		dispatch(getPost())
-	}, [dispatch])
+	// useEffect(() => {
+	// 	dispatch(getPost())
+	// }, [dispatch])
 	// // const { isLoaded, hasErrors, posts } = useSelector(state => state).postsSlice
 
 	// useEffect(() => {

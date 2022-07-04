@@ -4,9 +4,4 @@ import App from './components/App'
 import { Provider } from 'react-redux'
 import reduxStore from 'redux/reduxStore'
 
-ReactDOM.render(
-	<Provider store={reduxStore}>
-		<App />
-	</Provider>,
-	document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'))
