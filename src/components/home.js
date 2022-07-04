@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { createPost, fetchAllPosts } from 'redux/post'
+import { createWidget, fetchAllWidgets } from 'redux/widget'
 
 //components
 import Layout from './layout'
@@ -11,14 +11,14 @@ import PostList from './PostList'
 export default function Home(props) {
 	const dispatch = useDispatch()
 
-	const { data, isLoaded, hasErrors } = useSelector(state => state.post)
+	const { data, isLoaded, hasErrors } = useSelector(state => state.widget)
 
 	useEffect(() => {
 		// dispatch async thunks are promises
 		// https://redux-toolkit.js.org/api/createAsyncThunk#unwrapping-result-actions
-		dispatch(createPost({ title: 'my title', type: 'my type' })).then(
+		dispatch(createWidget({ title: 'my title', type: 'my type' })).then(
 			action => {
-				dispatch(fetchAllPosts())
+				dispatch(fetchAllWidgets())
 			}
 		)
 	}, [dispatch])
@@ -31,11 +31,11 @@ export default function Home(props) {
 		// <Layout {...props}>
 		// 	{/* <nav className="d-flex flex-column align-items-center">
 		// 		<section>
-		// 			{!isLoaded && 'Posts loading…'}
+		// 			{!isLoaded && 'Widgets loading…'}
 		// 			{hasErrors && 'Error Loading'}
 		// 			{isLoaded && (
 		// 				<div>
-		// 					<p>Posts are Loaded!</p>
+		// 					<p>Widgets are Loaded!</p>
 		// 					<pre>{JSON.stringify(data, null, 2)}</pre>
 		// 				</div>
 		// 			)}
