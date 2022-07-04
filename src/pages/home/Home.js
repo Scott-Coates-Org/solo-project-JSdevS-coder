@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 //components
-// import Layout from '../../components/layout'
+import Layout from '../../components/layout'
 import Hero from '../../components/page-component/Hero'
 import PostList from '../../components/page-component/posts/PostList'
 
@@ -21,9 +21,10 @@ export default function Home() {
 	// console.log(posts)
 	return (
 		<StyledContainer>
-			<Hero />
-			<PostList />
-			{/* <nav className="d-flex flex-column align-items-center">
+			<Layout>
+				<Hero />
+				<PostList />
+				{/* <nav className="d-flex flex-column align-items-center">
 				<section>
 					{!isLoaded && 'Posts loading…'}
 					{hasErrors && 'Error Loading'}
@@ -35,6 +36,7 @@ export default function Home() {
 					)}
 				</section>
 			</nav> */}
+			</Layout>
 		</StyledContainer>
 	)
 }
