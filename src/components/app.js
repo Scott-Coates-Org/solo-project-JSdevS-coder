@@ -16,15 +16,13 @@ import store from 'redux/store'
 import { getData, getDataSuccess } from 'redux/user'
 
 //components
-import Home from '../pages/home/Home'
-
+import Home from '../pages/Home'
+import Login from './user/login'
 import Logout from './user/logout'
-import Profile from '../pages/profile/Profile'
-import Create from '../pages/create/Create'
-
-import SinglePost from '../pages/singlePost/SinglePost'
-import SignIn from 'pages/signInUp/SignIn'
-import SignUp from 'pages/signInUp/SignUp'
+import Profile from '../pages/Profile'
+import Create from '../pages/Create'
+import Layout from './layout'
+import SinglePost from '../pages/SinglePost'
 
 const apiUrl = process.env.REACT_APP_API_URL
 
@@ -67,21 +65,15 @@ function App() {
 		<ErrorBoundary>
 			<AuthProvider onLogin={storeUserData}>
 				<Router history={history}>
+					<Layout></Layout>
+
 					<Switch>
 						<Route
-							path="/signin"
+							path="/login"
 							render={routeProps => (
-								<SignIn {...routeProps} {...props} firebase={firebase} />
+								<Login {...routeProps} {...props} firebase={firebase} />
 							)}
 						/>
-
-						<Route
-							path="/signup"
-							render={routeProps => (
-								<SignUp {...routeProps} {...props} firebase={firebase} />
-							)}
-						/>
-
 						<Route
 							path="/logout"
 							render={routeProps => (
@@ -111,7 +103,7 @@ function App() {
 						/>
 
 						{/* this must be on the bottom */}
-						<Route path="/" component={Home} {...props} />
+						<ProtectedRoute path="/" component={Home} {...props} />
 					</Switch>
 				</Router>
 			</AuthProvider>

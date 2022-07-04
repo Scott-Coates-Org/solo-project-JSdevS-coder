@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useAuth } from './user/auth'
 
 //components
-import NavBar from '../components/page-component/navbar/NavBar'
+import NavBar from './page-component/NavBar'
 
 export default function Layout(props) {
 	const { user } = useAuth()
@@ -42,7 +42,7 @@ function LayoutNav(props) {
 
 	const nav = (
 		<div className="nav-wrapper border-bottom">
-			<NavBar isOpen={isOpen} toggle={toggle} />
+			<NavBar isOpen={isOpen} toggle={toggle} user={user} />
 		</div>
 	)
 

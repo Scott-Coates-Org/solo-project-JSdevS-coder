@@ -12,6 +12,9 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons'
 //firebase
 import { StyledFirebaseAuth } from 'react-firebaseui'
 
+//components
+import Home from '../../pages/Home'
+
 const componentLoginFroms = {
 	login: LoginForm,
 	email: EmailLogin,
@@ -36,6 +39,7 @@ export default function Login(props) {
 	const retVal = (
 		/* todo - wrap in layout container */
 		<div className="container-lg container-fluid mt-lg-0 text-center">
+			<Home />
 			<div className="row pt-lg-0 ">
 				<Row className="container-fluid text-center  ">
 					<Col className="mb-6">
