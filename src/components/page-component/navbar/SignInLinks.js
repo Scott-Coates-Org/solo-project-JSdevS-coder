@@ -10,7 +10,7 @@ import {
 	DropdownMenu,
 } from 'reactstrap'
 
-export default function SignInLinks({ user, toggle, isOpen }) {
+export default function SignInLinks({ user }) {
 	return (
 		<Navbar expand="lg">
 			<NavbarToggler onClick={toggle} />

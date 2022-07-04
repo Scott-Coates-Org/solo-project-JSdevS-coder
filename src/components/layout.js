@@ -1,14 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useState } from 'react'
-// import { useAuth } from './user/auth'
+import { useAuth } from './user/auth'
 
 //components
 import NavBar from '../components/page-component/navbar/NavBar'
 import Footer from './page-component/footer/Footer'
 
 export default function Layout(props) {
-	// const { user } = useAuth()
+	const { user } = useAuth()
 
 	return (
 		<>
@@ -29,7 +29,7 @@ export default function Layout(props) {
 				/>
 			</Helmet>
 			<header>
-				<LayoutNav />
+				<LayoutNav user={user} {...props} />
 			</header>
 			{props.children}
 			<Footer />
@@ -37,7 +37,8 @@ export default function Layout(props) {
 	)
 }
 
-function LayoutNav() {
+function LayoutNav(props) {
+	const { user } = props
 	const [isOpen, setIsOpen] = useState(false)
 	const toggle = () => setIsOpen(!isOpen)
 

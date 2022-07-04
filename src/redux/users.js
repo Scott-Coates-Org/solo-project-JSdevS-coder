@@ -4,41 +4,19 @@ export const usersSlice = createSlice({
 	name: 'users',
 	initialState: {
 		users: [],
-		isLoaded: false,
+		loading: false,
 		error: false,
 	},
-	//reducers
 	reducers: {
-		//actions for adding user
 		addUser: (state, action) => {
 			state.users = [...users, action.payload]
 		},
-		addUserSuccess: (state, action) => {
-			state.isLoaded = true
-			state.users = action.payload
-			state.error = false
-		},
-		addUserFailure: state => {
-			state.isLoaded = true
-			state.error = true
-		},
-
-		//action for getting user
-		getUser: state => {},
-		getUserSuccess: (state, action) => {
-			state.isLoaded = true
-			state.users = action.payload
-		},
-
-		getUserFailure: state => {
-			state.isLoaded = true
-			state.error = true
+		getUser: state => {
+			state = state
 		},
 	},
 })
 
-//export actions
-export const { addUser, getUser, getUserFailure, getUserSuccess } =
-	usersSlice.actions
-//export reducer
+export const { addUser, getUser } = usersSlice.actions
+
 export default usersSlice.reducer

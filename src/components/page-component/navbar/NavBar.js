@@ -1,5 +1,5 @@
-// import { useContext } from 'react'
-// import { AuthContext } from '../../user/auth'
+import { useContext } from 'react'
+import { AuthContext } from '../../user/auth'
 
 //styles
 import { Navbar, NavbarBrand } from 'reactstrap'
@@ -13,9 +13,8 @@ import SignOutLinks from './SignOutLinks'
 import { Link } from 'react-router-dom'
 
 export default function NavBar({ isOpen, toggle }) {
-	// const { user } = useContext(AuthContext)
-	const user = {}
-	const posts = []
+	const { user } = useContext(AuthContext)
+
 	return (
 		<Navbar className="navBar" expand="lg">
 			<Link to="/" style={{ padding: '0', background: 'white' }}>
