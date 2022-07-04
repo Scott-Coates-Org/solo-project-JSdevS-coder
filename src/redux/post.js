@@ -3,20 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import firebaseClient from '../firebase/client'
 
 const initialState = {
-	data: [
-		{
-			author: '',
-			body: '',
-			city: '',
-			country: '',
-			currentWeather: {},
-			images: [],
-			location: [],
-			monthlyWeather: '',
-			time: {},
-			title: '',
-		},
-	],
+	data: {},
 	isLoaded: false,
 	hasErrors: false,
 }
@@ -86,33 +73,11 @@ async function _fetchAllPostsFromDb() {
 	return data
 }
 
-async function _createPost(
-	author,
-	body,
-	city,
-	country,
-	currentWeather,
-	images,
-	location,
-	monthlyWeather,
-	time,
-	title
-) {
+async function _createPost(title, type, photo) {
 	const doc = await firebaseClient
 		.firestore()
 		.collection('posts')
-		.add({
-			author,
-			body,
-			city,
-			country,
-			currentWeather,
-			images,
-			location,
-			monthlyWeather,
-			time,
-			title,
-		})
+		.add({ title, type, photo })
 
 	return doc
 }

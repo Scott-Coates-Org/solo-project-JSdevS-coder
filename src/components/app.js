@@ -1,7 +1,7 @@
 import { createBrowserHistory } from 'history'
 import { useEffect } from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
-import ErrorBoundary from './error-boundary'
+import ErrorBoundary from '././error-boundary'
 
 //style
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -17,8 +17,8 @@ import { getData, getDataSuccess } from 'redux/user'
 
 //components
 import Home from '../pages/Home'
-import Login from './user/login'
-import Logout from './user/logout'
+import Login from '../components/user/login'
+import Logout from '../components/user/logout'
 import Profile from '../pages/Profile'
 import Create from '../pages/Create'
 import Layout from './layout'
@@ -65,8 +65,7 @@ function App() {
 		<ErrorBoundary>
 			<AuthProvider onLogin={storeUserData}>
 				<Router history={history}>
-					<Layout></Layout>
-
+					<Layout />
 					<Switch>
 						<Route
 							path="/login"
