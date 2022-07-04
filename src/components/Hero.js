@@ -1,6 +1,6 @@
 import { Container } from 'reactstrap'
 //assets
-import HeroGrid from '../../assets/Hero-grid.png'
+import HeroGrid from '../assets/Hero-grid.png'
 
 export default function Hero() {
 	return (

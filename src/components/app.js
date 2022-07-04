@@ -1,7 +1,7 @@
 import { createBrowserHistory } from 'history'
 import { useEffect } from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
-import ErrorBoundary from '././error-boundary'
+import ErrorBoundary from 'components/error-boundary'
 
 //style
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -16,13 +16,13 @@ import store from 'redux/store'
 import { getData, getDataSuccess } from 'redux/user'
 
 //components
-import Home from '../pages/Home'
-import Login from '../components/user/login'
-import Logout from '../components/user/logout'
-import Profile from '../pages/Profile'
-import Create from '../pages/Create'
+import Home from 'components/home'
+import Login from 'components/user/login'
+import Logout from 'components/user/logout'
+import Profile from 'pages/Profile'
+import Create from 'pages/Create'
 import Layout from './layout'
-import SinglePost from '../pages/SinglePost'
+import SinglePost from './SinglePost'
 
 const apiUrl = process.env.REACT_APP_API_URL
 

@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { AuthContext } from '../user/auth'
+import { AuthContext } from './user/auth'
 import Avatar from 'react-avatar'
 import {
 	DropdownItem,
@@ -14,11 +14,11 @@ import {
 } from 'reactstrap'
 
 //assets
-import Logo from '../../assets/WhereTo.png'
+import Logo from '../assets/Logo.png'
 
 export default function NavBar({ isOpen, toggle }) {
 	const { user } = useContext(AuthContext)
-	console.log(user)
+
 	return (
 		<Navbar className="navBar" expand="lg">
 			<NavbarBrand>

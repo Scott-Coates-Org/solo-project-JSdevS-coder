@@ -1,6 +1,6 @@
 // https://dev.to/thatgalnatalie/how-to-get-started-with-redux-toolkit-41e
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import firebaseClient from '../firebase/client'
+import firebaseClient from 'firebase/client'
 
 const initialState = {
 	data: {},
