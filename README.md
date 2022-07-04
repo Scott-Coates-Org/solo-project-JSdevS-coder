@@ -60,9 +60,9 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 
 - [ ✓] Get app approved (DM Scott for approval)
 - [ ✓] Create mockups (physical paper, low-fi)
-- [ ✓] Define scope (DM Scott for approval)
-  - [✓ ] Define milestones for each sprint
-  - [✓ ] Define final deliverable for v1
+- [ ] Define scope (DM Scott for approval)
+  - [ ] Define milestones for each sprint
+  - [ ] Define final deliverable for v1
 - [ ] App must
   - [ ] Be publicly accessible
   - [ ] Have working authentication
@@ -72,21 +72,21 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 
 - [ ] Technical component 25%
 - [ ] Re-evaluate milestones and features
-- [ ] Adding geolocation to the app and get user geolocation with IP address
-- [ ] Create user database on firebase and store user profiles there
+- [ ] [*Fill me in with Sprint 2 milestones*]
+- [ ] [*Fill me in with Sprint 2 milestones*]
 
 ### Sprint 3
 
 - [ ] Technical component 50%
 - [ ] Re-evaluate milestones and features
-- [ ] Create post database and store posts there
-- [ ] Add Weather API
+- [ ] [*Fill me in with Sprint 3 milestones*]
+- [ ] [*Fill me in with Sprint 3 milestones*]
 
 ### Sprint 4
 
 - [ ] Technical component 100%
-- [ ] Add chat functionality
-- [ ] Have website ready to deploy
+- [ ] [*Fill me in with Sprint 4 milestones*]
+- [ ] [*Fill me in with Sprint 4 milestones*]
 
 ## Mockups
 
