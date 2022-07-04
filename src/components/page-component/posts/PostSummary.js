@@ -3,26 +3,16 @@ import { Link } from 'react-router-dom'
 import { StyledContainer } from 'styles/Container.styled'
 import { StyledFlexColumn } from 'styles/FlexColumn.styled'
 import { StyledFlexRow } from 'styles/FlexRow.styled'
-import { StyledGreenText } from 'styles/TextGreen.styled'
 
 //assets
 import Colosseum from '../../../assets/coloseum.png'
 
 export default function PostSummary() {
 	return (
-		<StyledFlexRow
-			justify="space-between"
-			margin="1em auto"
-			padding="1em 0"
-			style={{ boxShadow: '0px 0px 5px #126b12 ' }}>
-			<StyledFlexColumn
-				margin="0"
-				padding="1em"
-				style={{ textAlign: 'center' }}>
+		<StyledFlexRow style={{ borderBottom: '1px solid #126b12' }}>
+			<StyledFlexColumn margin="0 2em">
 				<img src={Colosseum} alt="" width="400px" />
-				<StyledGreenText textSize="2em">
-					<i>By Username</i>
-				</StyledGreenText>
+				<i>By Username</i>
 			</StyledFlexColumn>
 			<StyledFlexColumn margin="0 2em">
 				<h1>
