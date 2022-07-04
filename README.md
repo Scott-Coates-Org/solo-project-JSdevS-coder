@@ -95,4 +95,4 @@ Update your progress by checking off the tasks for each sprint. We will **not** 
 | ![](src/mockups/Homepage.png)| ![](src/mockups/chat.png)|
 |----------------------------------------------------------------------|----------------------------------------------------------------------|
 | ![](src/mockups/login.png) | ![](src/mockups/singleArti.png) |
-
+>>>>>>> e47f273875f14a0ee4031c323ee2b7a2be9bb760
