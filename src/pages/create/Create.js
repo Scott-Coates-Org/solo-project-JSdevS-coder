@@ -2,7 +2,7 @@ import Layout from 'components/layout'
 import { AuthContext } from 'components/user/auth'
 import { StyledForm } from 'pages/signInUp/SignInUp.styles'
 import { useState } from 'react'
-import { useContext } from 'react'
+// import { useContext } from 'react'
 import { Row } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -16,9 +16,9 @@ import { StyledFlexRow } from 'styles/FlexRow.styled'
 import { StyledGreenText } from 'styles/TextGreen.styled'
 
 export default function Create() {
-	const { user } = useContext(AuthContext)
+	// const { user } = useContext(AuthContext)
 	console.log(user)
-
+	const user = ''
 	const [title, setTitle] = useState('')
 	const [body, setBody] = useState('')
 	const [city, setCity] = useState('')
@@ -37,31 +37,31 @@ export default function Create() {
 		time: new Date().toDateString(),
 	})
 
-	const { posts, isLoaded, error } = useSelector(state => state.posts)
+	// const { posts, isLoaded, error } = useSelector(state => state.posts)
 
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 
-	useEffect(() => {
-		dispatch(addPost(post))
-	}, [dispatch])
-	console.log(post)
-	const handleSubmit = () => {
-		if (user) {
-			setPost({
-				title,
-				body,
-				city,
-				country,
-				images,
-				location,
-				author,
-				monthlyWeather,
-				time,
-			})
-			dispatch(addPost(post))
-		}
-	}
-
+	// useEffect(() => {
+	// 	dispatch(addPost(post))
+	// }, [dispatch])
+	// console.log(post)
+	// const handleSubmit = () => {
+	// 	if (user) {
+	// 		setPost({
+	// 			title,
+	// 			body,
+	// 			city,
+	// 			country,
+	// 			images,
+	// 			location,
+	// 			author,
+	// 			monthlyWeather,
+	// 			time,
+	// 		})
+	// 		dispatch(addPost(post))
+	// 	}
+	// }
+	const handleSubmit = () => {}
 	return (
 		<Layout>
 			<StyledContainer>
